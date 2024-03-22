@@ -1,0 +1,189 @@
+/* Step 1 */
+/* Keyframe animation */
+@keyframes logo {
+  from {
+    width: 25px;
+    opacity: 0;
+  }
+  to {
+    width: 475px;
+    opacity: 1;
+  }
+}
+
+#logo {
+    animation: logo 5s forwards;
+}
+
+/* Step 2 */
+/* Body element - use the Poppins font with serif as a backup. background-image - “concrete_seamless.png” with a backup color of #f1f1f1. */
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* Step 3 */
+/* header tag to use flex to match example */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Step 4 */
+/* nav_links class to use flex to match example */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step 5 */
+/* Style links to have the same color after they have been visited. */
+/* a:link, a:visited {
+    color: #0000EE;
+} */
+.nav_links a:link,
+.nav_links a:visited {
+    color: #0000EE;
+}
+
+/* Step 6 */
+/* Style header elements that are direct children of a card class */
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Step 7 */
+/* Edit card class to match example */
+.card {
+    flex-basis: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    width: 450px;
+}
+
+/* Step 8 */
+/* Edit pricing class to match example */
+.pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Step 9 */
+/* Styling images in gallery class */
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Step 10 */
+/* Gallery class to match example */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* 900px media query */
+@media (min-width: 900px) {
+    /* Step 11 */
+    /* Header to match example */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav_links {
+        flex-direction: row;
+    }
+    /* Step 12 */
+    /* Pricing and card to match example */
+    .pricing {
+        flex-direction: row;
+    }
+    .card {
+        flex-basis: 275px;
+        width: 275px;
+    }
+    .gallery {
+        justify-content: center;
+    }
+    /* Step 13
+    First header to remains visible at the top of the screen despite scrolling */
+    body > header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    body > main {
+        padding-top: 100px;
+    }
+}
+
+/* Step 14
+The logo should appear but not be animated if prefers-reduced-motion is selected */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        width: 475px;
+        opacity: 1;
+        animation: none;
+    }
+}
+
+/* Print view */
+@media print {
+    /* Step 15 */
+    /* Set body font Arial with a backup Helvetica */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Step 16 */
+    /* Removing background image */
+    body {
+        background-image: none;
+    }
+
+    /* Step 17 */
+    /* Navigation elements to be spaced out horizontally */
+    header {
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    /* Step 18 */
+    /* Pricing class to align along the bottom.*/
+    .pricing {
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    /* Step 19 */
+    /* Setting card elements to have solid border and flex-basis of 325px. */
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* Step 20 */
+    /* Set gallery not visible */
+    .gallery {
+        display: none;
+    }
+
+    /* Step 21 */
+    /* Add the thumbs up in the cards */
+    .card ul li:nth-child(2)::after {
+        content: "\1F44D";
+    }
+}
